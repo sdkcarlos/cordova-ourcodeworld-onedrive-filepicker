@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.ourcodeworld.onedrivefilepicker"
+        version="0.5.0">
+
+    <name>Our Code World OneDrive File picker Plugin</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.4.0"/>
+    </engines>
+
+    <asset src="www/ourcodeworldsftp.js" target="js/ourcodeworldsftp.js"/>
+
+    <js-module src="www/ourcodeworldsftp.js" name="OurCodeWorldSFTP">
+        <clobbers target="OurCodeWorldSFTP" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OurCodeWorldOneDriveFilePicker">
+                <param name="android-package" value="com.ourcodeworld.plugins.onedrivefilepicker.OurCodeWorldOneDriveFilePicker"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/OurCodeWorldOneDriveFilePicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
+        <framework src="com.microsoft.onedrivesdk:onedrive-picker-android:v2.0" />
+    </platform>
+</plugin>
