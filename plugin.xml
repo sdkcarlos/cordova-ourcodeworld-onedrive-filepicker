@@ -9,10 +9,10 @@
         <engine name="cordova" version=">=3.4.0"/>
     </engines>
 
-    <asset src="www/ourcodeworldsftp.js" target="js/ourcodeworldsftp.js"/>
+    <asset src="www/ourcodeworldonedrive.js" target="js/ourcodeworldonedrive.js"/>
 
-    <js-module src="www/ourcodeworldsftp.js" name="OurCodeWorldSFTP">
-        <clobbers target="OurCodeWorldSFTP" />
+    <js-module src="www/ourcodeworldonedrive.js" name="OurCodeWorldOneDrive">
+        <clobbers target="OurCodeWorldOneDrive" />
     </js-module>
 
     <platform name="android">
