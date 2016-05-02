@@ -11,7 +11,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
-        
-        
+
+        return true;
     }
 }
