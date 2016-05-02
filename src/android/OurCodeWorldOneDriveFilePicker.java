@@ -27,7 +27,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     }
 
     @Override
-    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         // Get the results from the picker
         IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
         // Handle the case if nothing was picked
