@@ -19,7 +19,7 @@ module.exports = {
                     console.info(data);
                 }, function(err){
                     console.error(err);
-                }, "OurCodeWorldOneDrive", "showpicker", [_settings]);
+                }, "OurCodeWorldOneDriveFilePicker", "showpicker", [_settings]);
             }
         };
     }
