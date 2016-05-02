@@ -31,7 +31,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         // Handle the case if nothing was picked
         if (result != null) {
             // Do something with the picked file
-            Log.d("main", "Link to file '" + result.getName() + ": " + result.getLink());
+            //Log.d("main", "Link to file '" + result.getName() + ": " + result.getLink());
             return;
         }
 
