@@ -11,8 +11,8 @@
 
     <asset src="www/ourcodeworldonedrive.js" target="js/ourcodeworldonedrive.js"/>
 
-    <js-module src="www/ourcodeworldonedrive.js" name="OurCodeWorldOneDrive">
-        <clobbers target="OurCodeWorldOneDrive" />
+    <js-module src="www/ourcodeworldonedrive.js" name="OurCodeWorldOneDriveFilePicker">
+        <clobbers target="OurCodeWorldOneDriveFilePicker" />
     </js-module>
 
     <platform name="android">
