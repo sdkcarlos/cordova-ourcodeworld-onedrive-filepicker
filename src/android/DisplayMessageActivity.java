@@ -11,16 +11,5 @@ import android.widget.Toast;// ToToast
 import com.microsoft.onedrivesdk.picker.*;
 
 public class DisplayMessageActivity extends CordovaActivity{
-
-    public DisplayMessageActivity (){
-        tolog("Hola");
-    }
-
-    public void tolog(String toLog){
-        Context context = cordova.getActivity();
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, toLog, duration);
-        toast.show();
-    }
+    
 }
