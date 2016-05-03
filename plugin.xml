@@ -23,20 +23,6 @@
             </feature>
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-			<activity android:name="org.apache.cordova.plugins.OurCodeWorldOneDriveFilePicker"
-                  android:configChanges="orientation|keyboardHidden"
-                  android:screenOrientation="landscape"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-                  android:windowSoftInputMode="stateAlwaysHidden" >
-                  <intent-filter>
-                      <action android:name="com.phonegap.plugins.OurCodeWorldOneDriveFilePicker.SHOW" />
-
-                      <category android:name="android.intent.category.DEFAULT" />
-                  </intent-filter>
-			</activity>
-		</config-file>
-
         <source-file src="src/android/OurCodeWorldOneDriveFilePicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
         <framework src="com.microsoft.onedrivesdk:onedrive-picker-android:v2.0" />
     </platform>

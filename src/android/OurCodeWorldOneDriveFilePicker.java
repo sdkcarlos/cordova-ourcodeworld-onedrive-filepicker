@@ -23,16 +23,9 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         PUBLIC_CALLBACKS = callbackContext;
 
         if (ACTION_SHOWPICKER.equals(action)) {
-            String SCAN_INTENT = "com.phonegap.plugins.OurCodeWorldOneDriveFilePicker.SHOW";
-
-            Intent intentScan = new Intent(SCAN_INTENT);
-            intentScan.addCategory(Intent.CATEGORY_DEFAULT);
-            this.cordova.startActivityForResult((CordovaPlugin) this, intentScan, 9999999);
-
-
-            //mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
-            //mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
-            //tolog("El selector se ha abierto");
+            mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
+            mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
+            tolog("El selector se ha abierto");
         }
 
         PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT);
