@@ -27,7 +27,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
 
             Intent intentScan = new Intent(SCAN_INTENT);
             intentScan.addCategory(Intent.CATEGORY_DEFAULT);
-            this.cordova.startActivityForResult((CordovaPlugin) this, intentScan);
+            this.cordova.startActivityForResult((CordovaPlugin) this, intentScan, 9999999);
 
 
             //mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
