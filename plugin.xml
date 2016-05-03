@@ -31,6 +31,10 @@
                 <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.ourcodeworld.plugins.onedrivefilepicker.MyActivity" />
+                <intent-filter>
+                   <action android:name="com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity" />  
+                     <category android:name="android.intent.category.DEFAULT" />
+                 </intent-filter>
             </activity>
 		</config-file>
 
