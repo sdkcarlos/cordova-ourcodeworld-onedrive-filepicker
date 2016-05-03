@@ -11,7 +11,7 @@ import com.microsoft.onedrivesdk.picker.*;
 public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     private static String ONEDRIVE_APP_ID = "";
     private static final String ACTION_SHOWPICKER = "showpicker";
-    private static CallbackContext PUBLIC_CALLBACKS = null;
+    private CallbackContext PUBLIC_CALLBACKS = null;
     private IPicker mPicker;
 
     @Override
@@ -23,6 +23,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         if (ACTION_SHOWPICKER.equals(action)) {
             mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
             mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
+            tolog("El selector se ha abierto");
         }
 
         PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT);
@@ -32,20 +33,30 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     }
 
     @Override
-    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        // Get the results from the picker
-        IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
-        // Handle the case if nothing was picked
-        if (result != null) {
-            PluginResult resultA = new PluginResult(PluginResult.Status.OK, "testing");
-            resultA.setKeepCallback(true);
-            PUBLIC_CALLBACKS.sendPluginResult(resultA);
-            // Do something with the picked file
-            //Log.d("main", "Link to file '" + result.getName() + ": " + result.getLink());
-            return;
-        }
-
-        // Handle non-OneDrive picker request
+   public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+   // Get the results from the picker
+       IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
+       // Handle the case if nothing was picked
+       if (result != null) {
+           tolog("Se ha seleccionado un archivo");
+           PluginResult resultA = new PluginResult(PluginResult.Status.OK, "testing");
+           resultA.setKeepCallback(true);
+           PUBLIC_CALLBACKS.sendPluginResult(resultA);
+           // Do something with the picked file
+           //Log.d("main", "Link to file '" + result.getName() + ": " + result.getLink());
+           return;
+       }
+       tolog("onActivityResult");
+       // Handle non-OneDrive picker request
         super.onActivityResult(requestCode, resultCode, data);
+   }
+
+    public void tolog(String toLog){
+        Context context = cordova.getActivity();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, toLog, duration);
+        toast.show();
     }
+
 }
