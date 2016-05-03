@@ -45,9 +45,9 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
         // Handle the case if nothing was picked
         if (result != null) {
-            PluginResult resultA = new PluginResult(PluginResult.Status.OK, result.getLink());
+            PluginResult resultA = new PluginResult(PluginResult.Status.OK, "Hola"+result.getLink());
             resultA.setKeepCallback(true);
-            callbacks.sendPluginResult(resultA);
+            PUBLIC_CALLBACKS.sendPluginResult(resultA);
             // Do something with the picked file
             //tolog("Link to file '" + result.getName() + ": " + result.getLink());
             return;
