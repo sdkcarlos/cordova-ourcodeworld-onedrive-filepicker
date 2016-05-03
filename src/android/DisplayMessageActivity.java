@@ -9,6 +9,6 @@ import android.content.Context;// To toast
 import android.widget.Toast;// ToToast
 import com.microsoft.onedrivesdk.picker.*;
 
-public class DisplayMessageActivity extends Activity  {
- 
+public class DisplayMessageActivity extends MainActivity  {
+
 }
