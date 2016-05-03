@@ -56,7 +56,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
             } catch (JSONException e) {
                 PluginResult resultB = new PluginResult(PluginResult.Status.ERROR, e.getMessage().toString());
                 resultB.setKeepCallback(true);
-                PUBLIC_CALLBACKS.sendPluginResult(resultA);
+                PUBLIC_CALLBACKS.sendPluginResult(resultB);
             }
             // Do something with the picked file
             //tolog("Link to file '" + result.getName() + ": " + result.getLink());
