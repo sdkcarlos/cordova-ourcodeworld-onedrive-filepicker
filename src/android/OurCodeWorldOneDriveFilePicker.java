@@ -51,7 +51,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         }
 
         //do something with the result
-        super.onActivityResult(requestCode, resultCode, intent);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void tolog(String toLog){
