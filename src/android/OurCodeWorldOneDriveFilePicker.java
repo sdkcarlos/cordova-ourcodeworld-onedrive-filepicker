@@ -11,18 +11,22 @@ import com.microsoft.onedrivesdk.picker.*;
 public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     private static String ONEDRIVE_APP_ID = "";
     private static final String ACTION_SHOWPICKER = "showpicker";
-    private static final CallbackContext PUBLIC_CALLBACKS = null;
+    private static CallbackContext PUBLIC_CALLBACKS = null;
     private IPicker mPicker;
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
         final JSONObject arg_object = data.getJSONObject(0);
         ONEDRIVE_APP_ID = arg_object.getString("appId");
+        PUBLIC_CALLBACKS = callbackContext;
 
         if (ACTION_SHOWPICKER.equals(action)) {
             mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
             mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
         }
+
+        PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT);
+        pluginResult.setKeepCallback(true); // Keep callback
 
         return true;
     }
@@ -33,6 +37,9 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
         // Handle the case if nothing was picked
         if (result != null) {
+            PluginResult resultA = new PluginResult(PluginResult.Status.OK, "testing");
+            resultA.setKeepCallback(true);
+            PUBLIC_CALLBACKS.sendPluginResult(resultA);
             // Do something with the picked file
             //Log.d("main", "Link to file '" + result.getName() + ": " + result.getLink());
             return;
