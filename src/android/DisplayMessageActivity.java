@@ -11,12 +11,16 @@ import android.widget.Toast;// ToToast
 import com.microsoft.onedrivesdk.picker.*;
 
 public class DisplayMessageActivity extends CordovaActivity{
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        super.init();
-        // Load your application
-         launchUrl = "file:///android_asset/www/index.html";
-//        launchUrl = "file:///android_asset/www/index2.html";
-        loadUrl(launchUrl);
-   }
+
+    public DisplayMessageActivity (){
+        tolog("Hola");
+    }
+
+    public void tolog(String toLog){
+        Context context = cordova.getActivity();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, toLog, duration);
+        toast.show();
+    }
 }
