@@ -25,6 +25,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         if (ACTION_SHOWPICKER.equals(action)) {
             //Intent intent = new Intent(this, DisplayMessageActivity.class);
             Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity");
+            cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
 
             mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
             mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
