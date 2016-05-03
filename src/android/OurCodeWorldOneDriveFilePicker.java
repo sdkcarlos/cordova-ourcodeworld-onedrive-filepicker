@@ -23,6 +23,8 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         PUBLIC_CALLBACKS = callbackContext;
 
         if (ACTION_SHOWPICKER.equals(action)) {
+            Intent intent = new Intent(this, DisplayMessageActivity.class);
+
             mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
             mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
             tolog("El selector se ha abierto");
