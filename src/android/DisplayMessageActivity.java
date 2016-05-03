@@ -12,7 +12,8 @@ import com.microsoft.onedrivesdk.picker.*;
 
 public class DisplayMessageActivity extends CordovaActivity{
     private CallbackContext activityResultCallback = null;
-    private CordovaPlugin activityResultCallback = null;
+    private boolean activityResultKeepRunning = true;
+    private boolean keepRunning = true;
 
     @Override
     public void setActivityResultCallback(CordovaPlugin plugin) {
