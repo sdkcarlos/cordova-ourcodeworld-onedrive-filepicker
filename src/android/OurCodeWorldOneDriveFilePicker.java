@@ -35,28 +35,11 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     }
 
     @Override
-    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        tolog("onActivityResult 1");
-
-   // Get the results from the picker
-       IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
-       // Handle the case if nothing was picked
-       if (result != null) {
-           tolog("Se ha seleccionado un archivo");
-           PluginResult resultA = new PluginResult(PluginResult.Status.OK, "testing");
-           resultA.setKeepCallback(true);
-           PUBLIC_CALLBACKS.sendPluginResult(resultA);
-           // Do something with the picked file
-           //Log.d("main", "Link to file '" + result.getName() + ": " + result.getLink());
-           return;
-       }
-
-       tolog("onActivityResult 2");
-       // Handle non-OneDrive picker request
-        super.onActivityResult(requestCode, resultCode, data);
-
-        tolog("onActivityResult 3");
-   }
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        tolog("onActivityResult test");
+        //do something with the result
+        super.onActivityResult(requestCode, resultCode, intent);
+    }
 
     public void tolog(String toLog){
         Context context = cordova.getActivity();
