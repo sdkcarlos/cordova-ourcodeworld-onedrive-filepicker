@@ -9,7 +9,7 @@ import com.microsoft.onedrivesdk.picker.*;
 
 
 public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
-    private static final String ONEDRIVE_APP_ID = "";
+    private static String ONEDRIVE_APP_ID = "";
     private static final String ACTION_SHOWPICKER = "showpicker";
     private static final CallbackContext PUBLIC_CALLBACKS = null;
     private IPicker mPicker;
