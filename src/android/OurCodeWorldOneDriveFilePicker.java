@@ -23,7 +23,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         PUBLIC_CALLBACKS = callbackContext;
 
         if (ACTION_SHOWPICKER.equals(action)) {
-            private static final String SCAN_INTENT = "com.phonegap.plugins.OurCodeWorldOneDriveFilePicker.SHOW";
+            String SCAN_INTENT = "com.phonegap.plugins.OurCodeWorldOneDriveFilePicker.SHOW";
 
             Intent intentScan = new Intent(SCAN_INTENT);
             intentScan.addCategory(Intent.CATEGORY_DEFAULT);
