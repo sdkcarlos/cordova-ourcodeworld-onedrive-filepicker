@@ -9,14 +9,15 @@ import com.microsoft.onedrivesdk.picker.*;
 
 
 public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
-    private static final String ONEDRIVE_APP_ID = "0000000048188688";
+    private static final String ONEDRIVE_APP_ID = "";
     private static final String ACTION_SHOWPICKER = "showpicker";
-
+    private static final CallbackContext PUBLIC_CALLBACKS = null;
     private IPicker mPicker;
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
         final JSONObject arg_object = data.getJSONObject(0);
+        ONEDRIVE_APP_ID = arg_object.getString("appId");
 
         if (ACTION_SHOWPICKER.equals(action)) {
             mPicker = Picker.createPicker(ONEDRIVE_APP_ID);

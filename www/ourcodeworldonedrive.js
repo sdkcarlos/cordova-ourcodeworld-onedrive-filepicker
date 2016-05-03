@@ -6,21 +6,30 @@ module.exports = {
             appId : null
         };
 
+        var _callbacks = {
+            onFileSelected: null,
+            onCancel:null,
+            onError:null
+        };
+
         return {
             setAppId: function(id){
                 _settings.appId = id;
             },
             showPicker: function(){
-                //if(!_settings.appId){
-                //    throw new Error("You need to give an onedriveapp id, use setAppId method");
-                //}
+                if(!_settings.appId){
+                    throw new Error("You need to give an onedriveapp id, use setAppId method");
+                }
 
                 cordova.exec(function(data){
                     console.info(data);
                 }, function(err){
                     console.error(err);
                 }, "OurCodeWorldOneDriveFilePicker", "showpicker", [_settings]);
-            }
+            },
+            onFileSelected: undefined,
+            onCancel: undefined,
+            onError: undefined
         };
     }
 };
