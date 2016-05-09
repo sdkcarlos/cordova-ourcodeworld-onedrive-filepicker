@@ -11,8 +11,18 @@ import android.widget.Toast;// ToToast
 import com.microsoft.onedrivesdk.picker.*;
 
 public class DisplayMessageActivity extends Activity{
-    @Override
-    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        this.finish();
+
+    public void onStart()
+    {
+       super.onStart();
+       tolog("In the onStart() event");
+    }
+
+    public void tolog(String toLog){
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, toLog, duration);
+        toast.show();
     }
 }
