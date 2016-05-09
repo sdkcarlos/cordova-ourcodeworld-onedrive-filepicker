@@ -18,6 +18,21 @@ public class DisplayMessageActivity extends Activity{
        tolog("In the onStart() event");
     }
 
+    @Override
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        tolog("onActivityResult test de segunda");
+        // Get the results from the picker
+        IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
+        // Handle the case if nothing was picked
+        if (result != null) {
+            tolog("Link to file '" + result.getName() + ": " + result.getLink());
+            return;
+        }
+
+        //do something with the result
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     public void tolog(String toLog){
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
