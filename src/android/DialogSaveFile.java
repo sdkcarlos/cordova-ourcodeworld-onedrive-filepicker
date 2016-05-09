@@ -15,20 +15,24 @@ import java.util.Map;
 
 public class DialogSaveFile extends Activity{
     private ISaver mSaver;
+    private boolean firstTime = true;
 
     @Override
     public void onStart() {
         super.onStart();
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String appId = extras.getString("app_id");
-            String filename = extras.getString("filename");
-            String filepath = extras.getString("filepath");
-            Uri fileuri = Uri.parse(filepath);
+        if(firstTime == true){
+            Bundle extras = getIntent().getExtras();
+            if (extras != null) {
+                String appId = extras.getString("app_id");
+                String filename = extras.getString("filename");
+                String filepath = extras.getString("filepath");
+                Uri fileuri = Uri.parse(filepath);
 
-            mSaver = Saver.createSaver(appId);
-            mSaver.startSaving(this, filename, fileuri);
+                mSaver = Saver.createSaver(appId);
+                mSaver.startSaving(this, filename, fileuri);
+                firstTime = false;
+            }
         }
     }
 
