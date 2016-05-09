@@ -32,9 +32,10 @@ public class DisplayMessageActivity extends Activity{
             tolog("Link to file '" + result.getName() + ": " + result.getLink());
             return;
         }
-
+        
+        finish();
         //do something with the result
-        super.onActivityResult(requestCode, resultCode, data);
+        //super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void tolog(String toLog){
