@@ -23,7 +23,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         PUBLIC_CALLBACKS = callbackContext;
 
         if (ACTION_SHOWPICKER.equals(action)) {
-            Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity");
+            Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker");
             intent.putExtra("app_id", ONEDRIVE_APP_ID);
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
         }

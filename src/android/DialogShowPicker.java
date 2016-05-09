@@ -11,7 +11,7 @@ import android.widget.Toast;// ToToast
 import android.os.Bundle;
 import com.microsoft.onedrivesdk.picker.*;
 
-public class DisplayMessageActivity extends Activity{
+public class DialogShowPicker extends Activity{
     //private static String ONEDRIVE_APP_ID = "0000000048188688";
     private IPicker mPicker;
     private boolean firstTime = true;

@@ -25,17 +25,17 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity
-                android:name="com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity"
+                android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker"
                 android:label="OneDrive filepicker">
                 <intent-filter>
-                   <action android:name="com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity" />
+                   <action android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker" />
                      <category android:name="android.intent.category.DEFAULT" />
                  </intent-filter>
             </activity>
 		</config-file>
 
         <source-file src="src/android/OurCodeWorldOneDriveFilePicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
-        <source-file src="src/android/DisplayMessageActivity.java" target-dir="src/com/ourcodeworld/plugin/"/>
+        <source-file src="src/android/DialogShowPicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
         <framework src="com.microsoft.onedrivesdk:onedrive-picker-android:v2.0" />
     </platform>
 </plugin>
