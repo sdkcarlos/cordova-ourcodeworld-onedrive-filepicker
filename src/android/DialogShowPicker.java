@@ -16,6 +16,7 @@ import java.util.Map;
 public class DialogShowPicker extends Activity{
     private IPicker mPicker;
     private boolean firstTime = true;
+    private String linkMode = "";
 
     @Override
     public void onStart() {
@@ -24,12 +25,12 @@ public class DialogShowPicker extends Activity{
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 String appId = extras.getString("app_id");
-                String mode = extras.getString("link_mode");
+                linkMode = extras.getString("link_mode");        
                 mPicker = Picker.createPicker(appId);
-                tolog(mode);
-                if(mode.equals("view")){
+
+                if(linkMode.equals("view")){
                     mPicker.startPicking(this, LinkType.WebViewLink);
-                }else if(mode.equals("download")){
+                }else if(linkMode.equals("download")){
                     mPicker.startPicking(this, LinkType.DownloadLink);
                 }
             }
@@ -45,7 +46,11 @@ public class DialogShowPicker extends Activity{
         if (result != null) {
             try {
                 JSONObject response = new JSONObject();
-                response.put("downloadlink",result.getLink());
+                if(linkMode.equals("view")){
+                    response.put("viewLink",result.getLink());
+                }else if(linkMode.equals("download")){
+                    response.put("downloadlink",result.getLink());
+                }
                 response.put("filename",result.getName());
                 response.put("size",result.getSize());
                 response.put("linkType",result.getLinkType());
