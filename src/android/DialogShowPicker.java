@@ -10,6 +10,8 @@ import android.content.Context;// To toast
 import android.widget.Toast;// ToToast
 import android.os.Bundle;
 import com.microsoft.onedrivesdk.picker.*;
+import android.net.Uri;
+import java.util.Map;
 
 public class DialogShowPicker extends Activity{
     //private static String ONEDRIVE_APP_ID = "0000000048188688";
@@ -46,12 +48,11 @@ public class DialogShowPicker extends Activity{
                 response.put("linkType",result.getLinkType());
                 JSONObject thumbnails = new JSONObject();
 
-
                 Map<String, Uri> map = result.getThumbnailLinks();
                 for (Map.Entry<String, Uri> entry : map.entrySet()) {
                     thumbnails.put(entry.getKey(),entry.getValue());
                 }
-                
+
                 response.put("thumbnails",thumbnails);
 
                 Intent intent = new Intent();
