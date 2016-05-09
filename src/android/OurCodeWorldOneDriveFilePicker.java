@@ -27,9 +27,9 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
             Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity");
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
 
-            mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
-            mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
-            tolog("El selector se ha abierto");
+            //mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
+            //mPicker.startPicking(cordova.getActivity(), LinkType.DownloadLink);
+            //tolog("El selector se ha abierto");
         }
 
         PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT);
@@ -40,11 +40,12 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        tolog("onActivityResult test");
+        //tolog("onActivityResult test");
         // Get the results from the picker
-        IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
+        //IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
         // Handle the case if nothing was picked
         if (result != null) {
+            /*
             try {
                 JSONObject response = new JSONObject();
                 response.put("downloadlink",result.getLink());
@@ -57,9 +58,10 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
                 PluginResult resultB = new PluginResult(PluginResult.Status.ERROR, e.getMessage().toString());
                 resultB.setKeepCallback(true);
                 PUBLIC_CALLBACKS.sendPluginResult(resultB);
-            }
+            }*/
             // Do something with the picked file
             //tolog("Link to file '" + result.getName() + ": " + result.getLink());
+            tolog("Hola on activity result cordova");
             return;
         }
 

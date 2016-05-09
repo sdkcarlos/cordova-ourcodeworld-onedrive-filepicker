@@ -11,11 +11,15 @@ import android.widget.Toast;// ToToast
 import com.microsoft.onedrivesdk.picker.*;
 
 public class DisplayMessageActivity extends Activity{
+    private static String ONEDRIVE_APP_ID = "0000000048188688";
+    private IPicker mPicker;
 
     public void onStart()
     {
        super.onStart();
        tolog("In the onStart() event");
+       mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
+       mPicker.startPicking(getApplicationContext(), LinkType.DownloadLink);
     }
 
     @Override
