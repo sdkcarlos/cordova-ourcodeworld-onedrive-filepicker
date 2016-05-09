@@ -44,7 +44,15 @@ public class DialogShowPicker extends Activity{
                 response.put("filename",result.getName());
                 response.put("size",result.getSize());
                 response.put("linkType",result.getLinkType());
-                response.put("thumbnails",result.getThumbnailLinks());
+                JSONObject thumbnails = new JSONObject();
+
+
+                Map<String, Uri> map = result.getThumbnailLinks();
+                for (Map.Entry<String, Uri> entry : map.entrySet()) {
+                    thumbnails.put(entry.getKey(),entry.getValue());
+                }
+                
+                response.put("thumbnails",thumbnails);
 
                 Intent intent = new Intent();
                 intent.putExtra("data", response.toString());
