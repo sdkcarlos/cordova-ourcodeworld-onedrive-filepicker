@@ -42,9 +42,9 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         //tolog("onActivityResult test");
         // Get the results from the picker
-        IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
+        //IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
         // Handle the case if nothing was picked
-        if (result != null) {
+        //if (result != null) {
             /*
             try {
                 JSONObject response = new JSONObject();
@@ -61,10 +61,10 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
             }*/
             // Do something with the picked file
             //tolog("Link to file '" + result.getName() + ": " + result.getLink());
-            tolog("Hola on activity result cordova");
-            return;
-        }
-
+        //    tolog("Hola on activity result cordova");
+        ///    return;
+        //}
+        tolog("Hola on activity result cordova :3");
         //do something with the result
         super.onActivityResult(requestCode, resultCode, data);
     }
