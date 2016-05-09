@@ -13,7 +13,7 @@ import com.microsoft.onedrivesdk.picker.*;
 public class DisplayMessageActivity extends Activity{
     private static String ONEDRIVE_APP_ID = "0000000048188688";
     private IPicker mPicker;
-    private firstTime = true;
+    private boolean firstTime = true;
 
     @Override
     public void onStart() {
