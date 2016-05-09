@@ -26,13 +26,11 @@ public class DialogShowPicker extends Activity{
                 String appId = extras.getString("app_id");
                 String mode = extras.getString("link_mode");
                 mPicker = Picker.createPicker(appId);
-                switch(mode){
-                    case "view":
-                        mPicker.startPicking(this, LinkType.WebViewLink);
-                    break;
-                    case "download":default:
-                        mPicker.startPicking(this, LinkType.DownloadLink);
-                    break;
+
+                if(mode == "view"){
+                    mPicker.startPicking(this, LinkType.WebViewLink);
+                }else if(mode == "download"){
+                    mPicker.startPicking(this, LinkType.DownloadLink);
                 }
             }
         }
