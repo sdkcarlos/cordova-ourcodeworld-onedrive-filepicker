@@ -26,7 +26,7 @@ public class DialogShowPicker extends Activity{
                 String appId = extras.getString("app_id");
                 String mode = extras.getString("link_mode");
                 mPicker = Picker.createPicker(appId);
-
+                tolog(mode);
                 if(mode == "view"){
                     mPicker.startPicking(this, LinkType.WebViewLink);
                 }else if(mode == "download"){
