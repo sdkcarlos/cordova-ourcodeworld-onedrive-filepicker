@@ -36,7 +36,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        if(resultCode == RESULT_OK){
+        if(resultCode == cordova.getActivity().RESULT_OK){
             Bundle extras = data.getExtras();
             String datica = extras.getString("data");
             tolog(datica);
