@@ -23,7 +23,7 @@ module.exports = {
 
                 cordova.exec(function(data){
                     var _processedData = JSON.parse(data);
-                    if(_callbacks.onFileSelected){
+                    if(typeof(_callbacks.onFileSelected) == "function"){
                         _callbacks.onFileSelected(_processedData);
                     }
                 }, function(err){
