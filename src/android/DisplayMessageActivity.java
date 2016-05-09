@@ -13,6 +13,6 @@ import com.microsoft.onedrivesdk.picker.*;
 public class DisplayMessageActivity extends Activity{
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-
+        this.finish();
     }
 }
