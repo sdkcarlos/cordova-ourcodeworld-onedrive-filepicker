@@ -31,9 +31,23 @@ public class DialogSaveFile extends Activity{
 
                 mSaver = Saver.createSaver(appId);
                 mSaver.startSaving(this, filename, fileuri);
-                firstTime = false;
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        firstTime = false;
+        // check that the file was successfully saved to OneDrive
+        try {
+            mSaver.handleSave(requestCode, resultCode, data);
+        } catch (final SaverException e) {
+            // Log error information
+            tolog(e.getErrorType().toString()); // Provides one of the SaverError enum
+            tolog(e.getDebugErrorInfo()); // Detailed debug error message
+        }
+
+        finish();
     }
 
     public void tolog(String toLog){
