@@ -44,7 +44,7 @@ public class DialogShowPicker extends Activity{
                 response.put("filename",result.getName());
                 response.put("size",result.getSize());
                 response.put("linkType",result.getLinkType());
-                response.put("thumbnails",result.getThumbnailLinks())
+                response.put("thumbnails",result.getThumbnailLinks());
 
                 Intent intent = new Intent();
                 intent.putExtra("data", response.toString());
