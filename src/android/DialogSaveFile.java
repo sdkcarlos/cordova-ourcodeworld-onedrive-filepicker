@@ -19,13 +19,12 @@ public class DialogSaveFile extends Activity{
     @Override
     public void onStart() {
         super.onStart();
-        if(firstTime == true){
-            Bundle extras = getIntent().getExtras();
-            if (extras != null) {
-                String appId = extras.getString("app_id");
-                String filename = extras.getString("filename");
-                String filepath = extras.getString("filepath");
-            }
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String appId = extras.getString("app_id");
+            String filename = extras.getString("filename");
+            String filepath = extras.getString("filepath");
         }
     }
 
