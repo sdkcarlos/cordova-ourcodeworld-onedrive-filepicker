@@ -46,6 +46,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
             PluginResult resultA = new PluginResult(PluginResult.Status.OK, linkData);
             resultA.setKeepCallback(true);
             PUBLIC_CALLBACKS.sendPluginResult(resultA);
+            return;
         }
 
 
