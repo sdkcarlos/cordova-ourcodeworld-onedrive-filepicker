@@ -11,7 +11,7 @@ import android.widget.Toast;// ToToast
 import com.microsoft.onedrivesdk.picker.*;
 
 public class DisplayMessageActivity extends Activity{
-    private static String ONEDRIVE_APP_ID = "0000000048188688";
+    //private static String ONEDRIVE_APP_ID = "0000000048188688";
     private IPicker mPicker;
     private boolean firstTime = true;
 
@@ -19,9 +19,13 @@ public class DisplayMessageActivity extends Activity{
     public void onStart() {
         super.onStart();
         if(firstTime == true){
-            tolog("In the onCreate() event");
-            mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
-            mPicker.startPicking(this, LinkType.DownloadLink);
+            Bundle extras = getIntent().getExtras();
+            if (extras != null) {
+                String appId = extras.getString("app_id");
+                tolog("In the onCreate() event, appid" + appId);
+                mPicker = Picker.createPicker(appId);
+                mPicker.startPicking(this, LinkType.DownloadLink);
+            }
         }
     }
 
