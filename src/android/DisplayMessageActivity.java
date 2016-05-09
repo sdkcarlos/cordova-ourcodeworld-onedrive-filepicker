@@ -44,6 +44,12 @@ public class DisplayMessageActivity extends Activity{
                 response.put("filename",result.getName());
                 response.put("size",result.getSize());
                 response.put("linkType",result.getLinkType());
+
+                Intent intent = new Intent();
+                intent.putExtra("data", response.toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                
             } catch (JSONException e) {
 
             }
