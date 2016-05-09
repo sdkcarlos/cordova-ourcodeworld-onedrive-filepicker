@@ -39,6 +39,14 @@ public class DisplayMessageActivity extends Activity{
 
         //do something with the result
         super.onActivityResult(requestCode, resultCode, data);
+
+        this.finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+           super.onBackPressed();
+           this.finish();
     }
 
     public void tolog(String toLog){
