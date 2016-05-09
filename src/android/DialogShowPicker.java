@@ -25,7 +25,7 @@ public class DialogShowPicker extends Activity{
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 String appId = extras.getString("app_id");
-                linkMode = extras.getString("link_mode");        
+                linkMode = extras.getString("link_mode");
                 mPicker = Picker.createPicker(appId);
 
                 if(linkMode.equals("view")){
@@ -65,21 +65,27 @@ public class DialogShowPicker extends Activity{
 
                 Intent intent = new Intent();
                 intent.putExtra("data", response.toString());
+                intent.putExtra("callback_identifier","file_selected");
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             } catch (JSONException e) {
-
+                Intent intent = new Intent();
+                intent.putExtra("data", e.getMessage().toString());
+                intent.putExtra("callback_identifier","error");
+                setResult(Activity.RESULT_OK, intent);
+                finish();
             }
-
-            //tolog("Link to file '" + result.getName() + ": " + result.getLink());
 
             finish();
             return;
         }
 
+
         //do something with the result
         super.onActivityResult(requestCode, resultCode, data);
 
+        Intent intent = new Intent();
+        setResult(Activity.RESULT_CANCELED, intent);
         finish();
     }
 

@@ -40,40 +40,26 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         if(resultCode == cordova.getActivity().RESULT_OK){
             Bundle extras = data.getExtras();
             String linkData = extras.getString("data");
-            tolog("Bata :"+linkData);
+            String callbackIdentifier = extras.getString("callback_identifier");
+
+            if(callbackIdentifier.equals("error")){
+                PluginResult errorResults = new PluginResult(PluginResult.Status.ERROR, linkData);
+                errorResults.setKeepCallback(true);
+                PUBLIC_CALLBACKS.sendPluginResult(errorResults);
+                return;
+            }
+
             PluginResult resultado = new PluginResult(PluginResult.Status.OK, linkData);
+            resultado.setKeepCallback(true);
+            PUBLIC_CALLBACKS.sendPluginResult(resultado);
+            return;
+        }else if(resultCode == cordova.getActivity().RESULT_CANCELED){
+            PluginResult resultado = new PluginResult(PluginResult.Status.OK, "");
             resultado.setKeepCallback(true);
             PUBLIC_CALLBACKS.sendPluginResult(resultado);
             return;
         }
 
-
-        //tolog("onActivityResult test");
-        // Get the results from the picker
-        // IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
-        // Handle the case if nothing was picked
-        //if (result != null) {
-            /*
-            try {
-                JSONObject response = new JSONObject();
-                response.put("downloadlink",result.getLink());
-                response.put("filename",result.getName());
-
-                PluginResult resultA = new PluginResult(PluginResult.Status.OK, response.toString());
-                resultA.setKeepCallback(true);
-                PUBLIC_CALLBACKS.sendPluginResult(resultA);
-            } catch (JSONException e) {
-                PluginResult resultB = new PluginResult(PluginResult.Status.ERROR, e.getMessage().toString());
-                resultB.setKeepCallback(true);
-                PUBLIC_CALLBACKS.sendPluginResult(resultB);
-            }*/
-            // Do something with the picked file
-            //tolog("Link to file '" + result.getName() + ": " + result.getLink());
-        //    tolog("Hola on activity result cordova");
-        ///    return;
-        //}
-        //tolog("Hola on activity result cordova :3 : ");
-        //do something with the result
         super.onActivityResult(requestCode, resultCode, data);
     }
 
