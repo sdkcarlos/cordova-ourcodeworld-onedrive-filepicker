@@ -14,10 +14,10 @@ public class DisplayMessageActivity extends Activity{
     private static String ONEDRIVE_APP_ID = "0000000048188688";
     private IPicker mPicker;
 
-    public void onStart()
+    public void onCreate()
     {
        super.onStart();
-       tolog("In the onStart() event");
+       tolog("In the onCreate() event");
        mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
        mPicker.startPicking(this, LinkType.DownloadLink);
     }
@@ -32,10 +32,9 @@ public class DisplayMessageActivity extends Activity{
             tolog("Link to file '" + result.getName() + ": " + result.getLink());
             return;
         }
-        
-        finish();
+
         //do something with the result
-        //super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void tolog(String toLog){
