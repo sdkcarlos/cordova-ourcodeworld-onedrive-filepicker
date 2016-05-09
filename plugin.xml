@@ -32,6 +32,9 @@
                  </intent-filter>
             </activity>
 
+		</config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogSaveFile"
                 android:label="OneDrive filesaver">
                 <intent-filter>
@@ -40,6 +43,8 @@
                  </intent-filter>
             </activity>
 		</config-file>
+
+
 
         <source-file src="src/android/OurCodeWorldOneDriveFilePicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
         <source-file src="src/android/DialogShowPicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
