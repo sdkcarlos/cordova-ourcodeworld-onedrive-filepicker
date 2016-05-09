@@ -25,9 +25,10 @@ public class DialogSaveFile extends Activity{
             String appId = extras.getString("app_id");
             String filename = extras.getString("filename");
             String filepath = extras.getString("filepath");
+            Uri fileuri = Uri.parse(filepath);
 
             mSaver = Saver.createSaver(appId);
-            mSaver.startSaving(this, filename, filepath);
+            mSaver.startSaving(this, filename, fileuri);
         }
     }
 
