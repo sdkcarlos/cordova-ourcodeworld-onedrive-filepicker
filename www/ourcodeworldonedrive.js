@@ -22,6 +22,7 @@ module.exports = {
                 }
 
                 cordova.exec(function(data){
+                    console.info("Succeso !");
                     var _processedData = JSON.parse(data);
                     if(typeof(_callbacks.onFileSelected) == "function"){
                         _callbacks.onFileSelected(_processedData);
