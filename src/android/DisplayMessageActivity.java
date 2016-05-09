@@ -33,7 +33,17 @@ public class DisplayMessageActivity extends Activity{
         IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
         // Handle the case if nothing was picked
         if (result != null) {
-            tolog("Link to file '" + result.getName() + ": " + result.getLink());
+            try {
+                JSONObject response = new JSONObject();
+                response.put("downloadlink",result.getLink());
+                response.put("filename",result.getName());
+                response.put("size",result.getSize());
+                response.put("linkType",result.getLinkType());
+            } catch (JSONException e) {
+
+            }
+
+            //tolog("Link to file '" + result.getName() + ": " + result.getLink());
 
             finish();
             return;
