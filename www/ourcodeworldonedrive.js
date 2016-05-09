@@ -11,8 +11,8 @@ module.exports = {
             setAppId: function(id){
                 _settings.appId = id;
             },
-            setLinkMode: function(){
-
+            setLinkMode: function(mode){
+                _settings.linkMode = mode;
             },
             showPicker: function(){
                 var instance = this;

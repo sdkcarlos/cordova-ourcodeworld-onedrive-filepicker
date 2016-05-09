@@ -11,7 +11,6 @@ import android.os.Bundle;
 import com.microsoft.onedrivesdk.picker.*;
 
 public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
-    private static String ONEDRIVE_APP_ID = "";
     private static final String ACTION_SHOWPICKER = "showpicker";
     private CallbackContext PUBLIC_CALLBACKS = null;
     private IPicker mPicker;
@@ -19,12 +18,14 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
         final JSONObject arg_object = data.getJSONObject(0);
-        ONEDRIVE_APP_ID = arg_object.getString("appId");
+        String ONEDRIVE_APP_ID = arg_object.getString("appId");
+        String LINK_MODE = arg_object.getString("linkMode");
         PUBLIC_CALLBACKS = callbackContext;
 
         if (ACTION_SHOWPICKER.equals(action)) {
             Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker");
             intent.putExtra("app_id", ONEDRIVE_APP_ID);
+            intent.putExtra("link_mode", LINK_MODE);
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
         }
 

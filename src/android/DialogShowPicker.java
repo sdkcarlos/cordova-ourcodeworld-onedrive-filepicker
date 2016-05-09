@@ -14,7 +14,6 @@ import android.net.Uri;
 import java.util.Map;
 
 public class DialogShowPicker extends Activity{
-    //private static String ONEDRIVE_APP_ID = "0000000048188688";
     private IPicker mPicker;
     private boolean firstTime = true;
 
@@ -25,9 +24,16 @@ public class DialogShowPicker extends Activity{
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 String appId = extras.getString("app_id");
-                tolog("In the onCreate() event, appid" + appId);
+                String mode = extras.getString("link_mode");
                 mPicker = Picker.createPicker(appId);
-                mPicker.startPicking(this, LinkType.DownloadLink);
+                switch(mode){
+                    case "view":
+                        mPicker.startPicking(this, LinkType.WebViewLink);
+                    break;
+                    case "download":default:
+                        mPicker.startPicking(this, LinkType.DownloadLink);
+                    break;
+                }
             }
         }
     }
@@ -35,7 +41,6 @@ public class DialogShowPicker extends Activity{
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         firstTime = false;
-        tolog("onActivityResult test de segunda");
         // Get the results from the picker
         IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
         // Handle the case if nothing was picked
