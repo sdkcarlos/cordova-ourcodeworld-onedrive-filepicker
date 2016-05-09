@@ -13,18 +13,21 @@ import com.microsoft.onedrivesdk.picker.*;
 public class DisplayMessageActivity extends Activity{
     private static String ONEDRIVE_APP_ID = "0000000048188688";
     private IPicker mPicker;
+    private boolean flag = false;
 
-    public void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       //setContentView(R.layout.main);
-       tolog("In the onCreate() event");
-       mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
-       mPicker.startPicking(this, LinkType.DownloadLink);
+    public void onStart() {
+       super.onStart();
+       if(flag == false){
+           tolog("In the onCreate() event");
+           mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
+           mPicker.startPicking(this, LinkType.DownloadLink);
+       }
     }
 
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        flag = true;
         tolog("onActivityResult test de segunda");
         // Get the results from the picker
         IPickerResult result = mPicker.getPickerResult(requestCode, resultCode, data);
