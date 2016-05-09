@@ -34,6 +34,8 @@ public class DisplayMessageActivity extends Activity{
         // Handle the case if nothing was picked
         if (result != null) {
             tolog("Link to file '" + result.getName() + ": " + result.getLink());
+
+            finish();
             return;
         }
 
