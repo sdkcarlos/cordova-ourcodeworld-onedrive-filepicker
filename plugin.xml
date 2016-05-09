@@ -48,6 +48,7 @@
 
         <source-file src="src/android/OurCodeWorldOneDriveFilePicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
         <source-file src="src/android/DialogShowPicker.java" target-dir="src/com/ourcodeworld/plugin/"/>
+        <source-file src="src/android/DialogSaveFile.java" target-dir="src/com/ourcodeworld/plugin/"/>
         <framework src="com.microsoft.onedrivesdk:onedrive-picker-android:v2.0" />
     </platform>
 </plugin>
