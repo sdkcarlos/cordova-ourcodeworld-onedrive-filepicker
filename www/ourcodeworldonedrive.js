@@ -22,7 +22,15 @@ module.exports = {
                 }
 
                 cordova.exec(function(data){
+                    if(!data){
+                        if(typeof(instance.onCancel) == "function"){
+                            instance.onCancel();
+                        }
+                        return;
+                    }
+
                     var _processedData = JSON.parse(data);
+
                     if(typeof(instance.onFileSelected) == "function"){
                         instance.onFileSelected(_processedData);
                     }
