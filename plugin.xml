@@ -24,11 +24,18 @@
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity
-                android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker"
+            <activity android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker"
                 android:label="OneDrive filepicker">
                 <intent-filter>
                    <action android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker" />
+                     <category android:name="android.intent.category.DEFAULT" />
+                 </intent-filter>
+            </activity>
+
+            <activity android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogSaveFile"
+                android:label="OneDrive filesaver">
+                <intent-filter>
+                   <action android:name="com.ourcodeworld.plugins.onedrivefilepicker.DialogSaveFile" />
                      <category android:name="android.intent.category.DEFAULT" />
                  </intent-filter>
             </activity>

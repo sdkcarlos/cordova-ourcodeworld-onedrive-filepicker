@@ -42,6 +42,16 @@ module.exports = {
                     console.error(err);
                 }, "OurCodeWorldOneDriveFilePicker", "showpicker", [_settings]);
             },
+            showSaver:function(filename,filepath){
+                cordova.exec(function(data){
+                     console.log(data);
+                }, function(err){
+                    if(typeof(instance.onError) == "function"){
+                        instance.onError(err);
+                    }
+                    console.error(err);
+                }, "OurCodeWorldOneDriveFilePicker", "savefile", [_settings]);
+            },
             onFileSelected: undefined,
             onCancel: undefined,
             onError: undefined

@@ -12,6 +12,7 @@ import com.microsoft.onedrivesdk.picker.*;
 
 public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     private static final String ACTION_SHOWPICKER = "showpicker";
+    private static final String ACTION_SAVEFILE = "savefile";
     private CallbackContext PUBLIC_CALLBACKS = null;
     private IPicker mPicker;
 
@@ -26,6 +27,12 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
             Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DialogShowPicker");
             intent.putExtra("app_id", ONEDRIVE_APP_ID);
             intent.putExtra("link_mode", LINK_MODE);
+            cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
+        }else if(ACTION_SAVEFILE.equals(action)){
+            Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DialogSaveFile");
+            intent.putExtra("app_id", ONEDRIVE_APP_ID);
+            intent.putExtra("filename", "test.js");
+            intent.putExtra("filepath", "file:///storage/emulated/0");
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
         }
 
