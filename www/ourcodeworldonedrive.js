@@ -3,15 +3,20 @@
 module.exports = {
     createOneDriveManager: function(){
         var _settings = {
-            appId : null
+            appId : null,
+            linkMode: "download"
         };
 
         return {
             setAppId: function(id){
                 _settings.appId = id;
             },
+            setLinkMode: function(){
+
+            },
             showPicker: function(){
                 var instance = this;
+
                 if(!_settings.appId){
                     throw new Error("You need to give an onedriveapp id, use setAppId method");
                 }
@@ -23,6 +28,9 @@ module.exports = {
                     }
 
                 }, function(err){
+                    if(typeof(instance.onError) == "function"){
+                        instance.onError(err);
+                    }
                     console.error(err);
                 }, "OurCodeWorldOneDriveFilePicker", "showpicker", [_settings]);
             },
