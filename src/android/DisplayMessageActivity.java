@@ -19,7 +19,7 @@ public class DisplayMessageActivity extends Activity{
        super.onStart();
        tolog("In the onStart() event");
        mPicker = Picker.createPicker(ONEDRIVE_APP_ID);
-       mPicker.startPicking(getApplicationContext(), LinkType.DownloadLink);
+       mPicker.startPicking(getActivity(), LinkType.DownloadLink);
     }
 
     @Override
