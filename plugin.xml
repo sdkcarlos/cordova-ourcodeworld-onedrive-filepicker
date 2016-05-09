@@ -26,13 +26,9 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity
                 android:name="com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity"
-                android:label="Hello"
-                android:parentActivityName="com.mycompany.myfirstapp.MyActivity" >
-                <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.ourcodeworld.plugins.onedrivefilepicker.MyActivity" />
+                android:label="OneDrive filepicker">
                 <intent-filter>
-                   <action android:name="com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity" />  
+                   <action android:name="com.ourcodeworld.plugins.onedrivefilepicker.DisplayMessageActivity" />
                      <category android:name="android.intent.category.DEFAULT" />
                  </intent-filter>
             </activity>
