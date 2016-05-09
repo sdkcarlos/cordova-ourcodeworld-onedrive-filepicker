@@ -38,8 +38,10 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         if(resultCode == cordova.getActivity().RESULT_OK){
             Bundle extras = data.getExtras();
-            String datica = extras.getString("data");
-            tolog(datica);
+            String linkData = extras.getString("data");
+            PluginResult resultA = new PluginResult(PluginResult.Status.OK, linkData);
+            resultA.setKeepCallback(true);
+            PUBLIC_CALLBACKS.sendPluginResult(resultA);
         }
 
 
@@ -67,7 +69,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         //    tolog("Hola on activity result cordova");
         ///    return;
         //}
-        tolog("Hola on activity result cordova :3 : ");
+        //tolog("Hola on activity result cordova :3 : ");
         //do something with the result
         super.onActivityResult(requestCode, resultCode, data);
     }

@@ -22,7 +22,10 @@ module.exports = {
                 }
 
                 cordova.exec(function(data){
-                    console.info(data);
+                    var _processedData = JSON.parse(data);
+                    if(_callbacks.onFileSelected){
+                        _callbacks.onFileSelected(_processedData);
+                    }
                 }, function(err){
                     console.error(err);
                 }, "OurCodeWorldOneDriveFilePicker", "showpicker", [_settings]);

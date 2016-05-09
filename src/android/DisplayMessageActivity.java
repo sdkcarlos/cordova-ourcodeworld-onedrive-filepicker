@@ -49,7 +49,6 @@ public class DisplayMessageActivity extends Activity{
                 intent.putExtra("data", response.toString());
                 setResult(Activity.RESULT_OK, intent);
                 finish();
-
             } catch (JSONException e) {
 
             }
