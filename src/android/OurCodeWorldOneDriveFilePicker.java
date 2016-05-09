@@ -70,5 +70,4 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
         Toast toast = Toast.makeText(context, toLog, duration);
         toast.show();
     }
-
 }
