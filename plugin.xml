@@ -16,9 +16,9 @@
     </js-module>
 
     <platform name="android">
-        <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.NETWORK_ACCESS" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="OurCodeWorldOneDriveFilePicker">
                 <param name="android-package" value="com.ourcodeworld.plugins.onedrivefilepicker.OurCodeWorldOneDriveFilePicker"/>
