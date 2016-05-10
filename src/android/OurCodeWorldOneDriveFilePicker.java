@@ -32,7 +32,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
             Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DialogSaveFile");
             intent.putExtra("app_id", ONEDRIVE_APP_ID);
             intent.putExtra("filename", "test.js");
-            intent.putExtra("filepath", "file:///storage/emulated/0/test.js");
+            intent.putExtra("filepath", "file:///storage/emulated/0/tessst.js");
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
         }
 
