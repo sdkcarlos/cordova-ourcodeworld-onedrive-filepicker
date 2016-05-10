@@ -12,6 +12,7 @@ import android.os.Bundle;
 import com.microsoft.onedrivesdk.saver.*;
 import android.net.Uri;
 import java.util.Map;
+import java.lang.Object;
 
 public class DialogSaveFile extends Activity{
     private ISaver mSaver;
@@ -27,7 +28,7 @@ public class DialogSaveFile extends Activity{
                 String appId = extras.getString("app_id");
                 String filename = extras.getString("filename");
                 String filepath = extras.getString("filepath");
-                Uri fileuri = Uri.parse(filepath);
+                Uri fileuri = Uri.fromFile(new File(filepath));
 
                 mSaver = Saver.createSaver(appId);
                 mSaver.startSaving(this, filename, fileuri);
@@ -46,7 +47,7 @@ public class DialogSaveFile extends Activity{
             if(e.getErrorType().toString().equals("Cancelled")){
                 // Cancelado
             }
-            
+
             tolog(e.getErrorType().toString()); // Provides one of the SaverError enum
             tolog(e.getDebugErrorInfo()); // Detailed debug error message
         }
