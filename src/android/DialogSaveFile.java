@@ -12,7 +12,7 @@ import android.os.Bundle;
 import com.microsoft.onedrivesdk.saver.*;
 import android.net.Uri;
 import java.util.Map;
-import java.lang.Object;
+import java.io.File;
 
 public class DialogSaveFile extends Activity{
     private ISaver mSaver;
