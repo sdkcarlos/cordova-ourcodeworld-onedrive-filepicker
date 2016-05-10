@@ -43,6 +43,10 @@ public class DialogSaveFile extends Activity{
             mSaver.handleSave(requestCode, resultCode, data);
         } catch (final SaverException e) {
             // Log error information
+            if(e.getErrorType().toString().equals("Cancelled")){
+                // Cancelado
+            }
+            
             tolog(e.getErrorType().toString()); // Provides one of the SaverError enum
             tolog(e.getDebugErrorInfo()); // Detailed debug error message
         }
