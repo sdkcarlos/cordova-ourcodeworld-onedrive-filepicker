@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.Context;// To toast
 import android.widget.Toast;// ToToast
 import android.os.Bundle;
+import android.os.Environment;
 import com.microsoft.onedrivesdk.picker.*;
 
 public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
@@ -32,7 +33,7 @@ public class OurCodeWorldOneDriveFilePicker extends CordovaPlugin {
             Intent intent = new Intent("com.ourcodeworld.plugins.onedrivefilepicker.DialogSaveFile");
             intent.putExtra("app_id", ONEDRIVE_APP_ID);
             intent.putExtra("filename", "HoldOn.js");
-            intent.putExtra("filepath", "/HoldOn.js");
+            intent.putExtra("filepath", Environment.getExternalStorageDirectory().getPath()+"/HoldOn.js");
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
         }
 
